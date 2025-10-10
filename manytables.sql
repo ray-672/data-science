@@ -65,3 +65,10 @@ select * from customer
 join orders ON
 customer.cust_id = orders.cust_id 
 where orders.ord_date = '20/3'
+
+select customer.cust_name, orders.ordno as 'orderno', salesmen.commision as 'commision percentage',
+orders.purch_amt * salesmen.commision as 'commision'
+from orders join customer ON
+orders.cust_id = customer.cust_id 
+join salesmen on orders.salesman_id = salesmen.sno
+where customer.grade >= 200
